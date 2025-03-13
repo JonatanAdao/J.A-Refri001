@@ -1,0 +1,91 @@
+        /* reset de css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+        /* estilos da pagina 
+body {
+    width: 100vw;
+    height: 100vh;
+}
+*/
+.item {     /* estilos dos itens */
+    display: none;      /* esconde os itens */
+    width: 100%;        /* ocupa toda a largura */
+    height: 100%;       /* ocupa toda a altura */
+    position: absolute;     /* posiciona os itens */
+    top: 0;         /* alinha no topo */
+    left: 0;        /* alinha na esquerda */
+    overflow: hidden;       /* esconde o conteudo que ultrapassa o tamanho do item */
+    background-color: var(--bg); 
+
+    & .titulo {   /* estilos do titulo */
+        font-size: 12rem;       /* tamanho da fonte */
+        color: #ffffff;     /* cor do texto */
+        font-family:'system-ui', sans-serif;        
+        text-align: center;     /* alinhamento do texto */
+        font-weight: bold;      /* negrito */
+
+        position: absolute;     /* posicionamento do titulo */
+        left: 50%;      /* alinhamento horizontal */
+        top: 50%;       /* alinhamento vertical */
+        transform: translate(-50%, -50%);       /* centraliza o titulo */
+    }
+    & .frutas {     /* estilos da imagem */
+        width: 90%;     /* largura da imagem */
+        position: absolute;     /* posicionamento da imagem */
+        left: 50%;      /* alinhamento horizontal da imagem*/
+        top: 50%;       /* alinhamento vertical da imagem */
+        transform: translate(-50%, -50%);
+        z-index: 3;
+    }
+    & .lata {
+        max-width: 600px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+}
+            /* estilos do item ativo */ 
+.item.ativo {      /* exibe o item */
+    display: block;     /* exibe o item */
+} 
+        /* estilos dos botoes */
+#esquerda, #direita {
+    position: absolute;     /*posicionamento dos botoes */
+    top: 50%;       /* alinhamento vertical */  
+    transform: translateY(-50%);      /* centraliza os botoes verticalmente */
+
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;     /* bordas arredondadas */
+    background-color: #eee9ee;     /* cor de fundo */
+    border: 1px solid #eee9ee;    /* borda */
+    cursor: pointer;        /* cursor de mao */
+    font-size: 2rem;       /* tamanho da fonte */
+    z-index: 4;     /* sobreposicao */
+
+}
+#esquerda {     /* estilos do botao esquerdo */
+    left: 30px;       /* alinhamento a esquerda */
+}
+#direita {      /* estilos do botao direito */
+    right: 30px;      /* alinhamento a direita */
+}
+
+@keyframes toAtivo {        /* animacao de entrada */
+    from {      /* estado inicial */
+        opacity: 0;     
+        top: 100%;      /* posicao inicial */
+    }
+}
+.item.ativo img.frutas {        /* animacao da imagem */
+    animation: toAtivo 0.5s ease-in-out 1;
+}
+.item.ativo  .titulo {      
+    animation: toAtivo 0.8s ease-in-out 1;
+}
